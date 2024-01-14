@@ -5,4 +5,70 @@
             <h3>Rendered From public widget.</h3>
         </div>
     </t>
+    <t t-name="v17_qweb_practice.jsTemplateWithvariable">
+        <div>
+            <ul>
+                <li>String: <span t-out="string"/></li>
+                <t t-set="some_date" t-value="new Date()"/>
+                <li>Javascript Object: <span t-out="some_date.toLocaleString()"/></li>
+                <li>Array:
+                    <ul>
+                        <li t-foreach="array" t-as="el" t-key="el">
+                            <span t-out="el"/>
+                        </li>
+                    </ul>
+                </li>
+                <li>Models:
+                    <ul>
+                        <li t-foreach="model" t-as="id" t-key="id">
+                            <span t-out="id.name"/>
+                        </li>
+                    </ul>
+                </li>
+                <li>Attributes: 
+                    <a t-attf-href="mailto:{{email}}"><span t-out="email"/></a>
+                </li>
+            </ul>
+        </div>
+    </t>
+    <t t-name="v17_qweb_practice.mainTemplate">
+        <div class="alert alert-primary">
+            <h3>This is the main Template</h3>
+        </div>
+    </t>
+
+    <!-- Extension Mode will affect Parent Template -->
+    <t t-inherit="v17_qweb_practice.mainTemplate" t-inherit-mode="extension">
+        <xpath expr="div" position="inside">
+            <button class="btn btn-info">Submit</button>
+        </xpath>
+    </t>
+
+     <!-- Primary Mode will not affect Parent Template -->
+     <t t-inherit="v17_qweb_practice.mainTemplate" t-name="v17_qweb_practice.mainTemplatePrimary" t-inherit-mode="primary">
+        <xpath expr="div" position="inside">
+            <button class="btn btn-danger ms-2">Close</button>
+        </xpath>
+    </t>
+    <t t-name="v17_qweb_practice.subTemplate">
+        <div id="wrapper">
+            <header>
+                <div class="alert alert-info">Header</div>
+            </header>
+            <main>
+                <t t-call="v17_qweb_practice.mainTemplate"/>
+            </main>
+            <footer>
+                <div class="alert alert-info">Footer</div>
+            </footer>
+        </div>
+    </t>
+
+    <t t-name="v17_qweb_practice.templateEvenrtListner">
+        <div class="alert alert-primary">
+            <h3>Template With Event</h3>
+            <p>Counter <span id="counter">0</span></p>
+            <button class="btn btn-info">Increase Counter</button>
+        </div>
+    </t>
 </templates>

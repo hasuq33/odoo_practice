@@ -375,7 +375,32 @@
                                 <tbody>
                                     <tr>
                                         <th>Render template from public Widget</th>
-                                        <td><div class="js-template"/> <div class="js-template"/></td>
+                                        <td><div class="js-template"/> </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Render template with Variable from public Widget</th>
+                                        <td> <div class="js-template-with-variable"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Template Inheritance</th>
+                                        <td>
+                                            <p>Template Extension</p>
+                                             <div class="js-mainTemplate-extension"></div>
+                                            <p>Child Templates</p>
+                                            <div class="js-template-primary"></div>
+                                            </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Sub Template</th>
+                                        <td>
+                                            <div class="js-templateSub"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Template EventListner</th>
+                                        <td>
+                                            <div class="js-templateEventListner"></div>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
