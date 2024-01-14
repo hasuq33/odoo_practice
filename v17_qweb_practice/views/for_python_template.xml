@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="somePythonTemplate" name="Some Python Template">
+        <t t-call="website.layout">
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col">
+                        <h1>Qweb-Practice</h1>
+                        <br />
+
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="home-tab" data-bs-toggle="tab"
+                                    data-bs-target="#home" type="button" role="tab"
+                                    aria-controls="home" aria-selected="true">Home</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                    data-bs-target="#profile" type="button" role="tab"
+                                    aria-controls="profile" aria-selected="false">Attributes</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="sub-template-tab" data-bs-toggle="tab"
+                                data-bs-target="#sub-template" type="button" role="tab"
+                                aria-controls="sub-template" aria-selected="false">Sub Template</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="security-tab" data-bs-toggle="tab"
+                                data-bs-target="#security" type="button" role="tab"
+                                aria-controls="security" aria-selected="false">Security</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="cashe-tab" data-bs-toggle="tab"
+                                data-bs-target="#cashe" type="button" role="tab"
+                                aria-controls="cashe" aria-selected="false">Cashe/Nocashe</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="inheritance-tab" data-bs-toggle="tab"
+                                data-bs-target="#inheritance" type="button" role="tab"
+                                aria-controls="inheritance" aria-selected="false">Inheritance</button>
+                            </li>
+                            <li class="nav-item active" role="presentation">
+                                <button class="nav-link active" id="javascript-tab" data-bs-toggle="tab"
+                                data-bs-target="#javascript" type="button" role="tab"
+                                aria-controls="javascript" aria-selected="false">Javascript</button>
+                            </li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane fade " id="home" role="tabpanel"
+                                aria-labelledby="home-tab" tabindex="0">
+                                <h3 class="py-3">Data-Output</h3>
+                                <table class="table table-striped table-sm border">
+                                    <tbody>
+                                        <tr>
+                                            <th>String</th>
+                                            <td><span t-out="string"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Integer</th>
+                                            <td><span t-out="integer"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Float</th>
+                                            <td><span t-out="some_float"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Boolean</th>
+                                            <td><span t-out="boolean"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>List</th>
+                                            <td><span t-out="some_list"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Dictionary</th>
+                                            <td><span t-out="ht_dict"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>HT Functions:</th>
+                                            <td><span t-out="ht_func"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>DateTime</th>
+                                            <td><span t-out="datetime.datetime.now()"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Sale Order Models</th>
+                                            <td><span t-out="model_ids"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Field Name</th>
+                                            <td><span t-out="model_ids[0].name"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Editable Model Field</th>
+                                            <td><span t-field="model_ids[0].name"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Model Fields Options</th>
+                                            <td><span t-field="model_ids[0].date_order" t-options="{'widget': 'datetime', 'date_only': True}"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <h3 class="py-3">Setting Variables</h3>
+                                <t t-set="string_value" t-value="'Some Variable'"/>
+                                <t t-set="string_literals_value" t-valuef="Some Literal Variable - {{ string }}"/>
+                                <t t-set="expression_value" t-value="1+1"/>
+                                <t t-set="python_object_value" t-value="datetime.datetime.now()"/>
+                                <t t-set="from_controller_value" t-value="model_ids"/>
+                                <t t-set="html_value">
+                                    <div class="alert alert-info">
+                                        <h3>Welcome Harshiv Technologies</h3>
+                                        <p>The Visionary Leadar</p>
+                                    </div>
+                                </t>
+                                <table class="table table-striped table-sm border">
+                                    <tbody>
+                                        <tr>
+                                            <th>String</th>
+                                            <td><span t-out="string_value"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>String Literals</th>
+                                            <td><span t-out="string_literals_value"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Expression Value</th>
+                                            <td><span t-out="expression_value"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Python Object Value</th>
+                                            <td><span t-out="python_object_value"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Controller Sale Order model Value</th>
+                                            <td><span t-out="from_controller_value"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Html Field Value</th>
+                                            <td><span t-out="html_value"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <h3 class="py-3">Conditions</h3>
+                                <table class="table table-striped table-sm border">
+                                    <tr>
+                                        <th>Is logged IN?</th>
+                                        <td>
+                                            <span t-if="request.session.uid">Yes</span>
+                                            <span t-else="">No</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Type OF USer</th>
+                                        <td>
+                                            <span t-if="user_id.login == 'admin'">Admin USer</span>
+                                            <span t-elif="user_id.login == 'public'">Public USer</span>
+                                            <span t-elif="user_id.login == 'portal'">Portal USer</span>
+                                            <span t-else="">Other User</span>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel"
+                                aria-labelledby="profile-tab" tabindex="0">
+                                <h3 class="py-3">Attributes</h3>
+                                <table class="table table-striped table-sm border py-3">
+                                    <tbody>
+                                        <tr>
+                                            <th>Expression</th>
+                                            <td>
+                                                <p>Website:
+                                                    <a t-att-href="user_id.partner_id.website">
+                                                        <span t-out="user_id.partner_id.website"/>
+                                                    </a>
+                                                </p>
+                                                <p>Email:
+                                                    <a t-att-href="'mailto:%s' % user_id.partner_id.email">
+                                                        <t t-out="user_id.partner_id.email"></t>
+                                                    </a>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Literals</th>
+                                            <td>
+                                                <p>Email:
+                                                    <a t-attf-href="mailto:{{user_id.partner_id.email}}">
+                                                        <t t-out="user_id.partner_id.email"></t>
+                                                    </a>
+                                                </p>
+                                                <p>Email:
+                                                    <a t-attf-href="mailto:#{user_id.partner_id.email}">
+                                                        <t t-out="user_id.partner_id.email"></t>
+                                                    </a>
+                                                </p>
+                                                <button t-attf-class="btn {{'btn-info' if request.session.uid else 
+                                            'btn-danger'}}">Status</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Mapping</th>
+                                            <td>
+                                                <p>Website:
+                                                    <a t-attf="{
+                                                        'href': user_id.partner_id.website,
+                                                        'title': '%s Website' % user_id.partner_id.name
+                                                    }">
+                                                    <span t-out="user_id.partner_id.website" />
+                                                </a>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Pairing</th>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="flexcheckinput" 
+                                                    disabled="1" t-att="[('checked' if request.session.uid else ''),'checked']"/>
+                                                    <label for="flexcheckinput" class="form-check-label">
+                                                        Is logged-in?
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="sub-template" role="tabpane" 
+                            aria-labelledby="sub-template" tabindex="0">
+                            <h3 class="py-3">Sub Templates</h3>
+                                <table class="table table-striped table-sm border py-3">
+                                    <tbody>
+                                        <tr>
+                                            <th>Sub Templates</th>
+                                            <td>
+                                                <t t-call="v17_qweb_practice.static_template"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Dynamic Templates</th>
+                                            <td>
+                                                <t t-set="article_title" t-valuef="Global Variable"/>
+                                                <t t-call="v17_qweb_practice.dynamic_template"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>Dynamic Templates</th>
+                                            <td>
+                                                <t t-set="article_title" t-valuef="Harshiv"/>
+                                                <t t-call="v17_qweb_practice.dynamic_template"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane fade" id="security" role="tabpane" 
+                            aria-labelledby="security" tabindex="0">
+                            <h3 class="py-3">Security</h3>
+                            <table class="table table-striped table-sm border py-3">
+                                <tbody>
+                                    <tr>
+                                        <th>Using Groups</th>
+                                        <td>
+                                            <div t-groups="base.group_system" class="alert alert-danger">
+                                                <h4>For Administrator Only</h4>
+                                            </div>
+                                            <div>
+                                                For Public User
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Using Escape</th>
+                                        <td>
+                                            <t t-raw="html_escape" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Using Sanitize</th>
+                                        <td>
+                                            <t t-raw="html_sanitize" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Using Markup</th>
+                                        <td>
+                                            <t t-out="html_markup" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                            <div class="tab-pane fade " id="cashe" role="tabpane" 
+                            aria-labelledby="cashe" tabindex="0">
+                            <h3 class="py-3">Cashe/NoCashe</h3>
+                            <!-- Note For Important dynamic project I will not suggest that not to use caching -->
+                            <table class="table table-striped table-sm border py-3">
+                                <tbody>
+                                    <tr>
+                                        <th>Models</th>
+                                        <td>
+                                            <h4>Sale Orders(Cache)</h4>
+                                            <ul>
+                                                <t t-foreach="model_ids" t-as="order">
+                                                    <li t-cache="order,order.partner_id">
+                                                        <strong t-out="order.name"/>
+                                                        <span t-out="order.state" class="badge bg-secondary"/>
+                                                        <small t-out="order.partner_id.name"/>
+                                                    </li>
+                                                </t>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Boolean</th>
+                                        <td>
+                                            <!-- I put the condition in caching for public user and other login user  -->
+                                            <div t-cache="'cache this element' if not request.session.uid else False">
+                                                <h4>Sale Order Count <span class="badge bg-success" t-out="len(model_ids)"/></h4>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Nocache</th>
+                                        <td>
+                                            <t t-set="template_variable" t-value="10"/>
+                                            <div t-cache="any_value">
+                                                <h4>Sale order Count
+                                                    <span t-nocache="add any text" class="badge bg-success" t-out="len(model_ids)"/>
+                                                </h4>
+                                                <p t-nocache="">Template Variable <span t-out="template_variable"/></p>
+                                                <t t-set="template_variable" t-value="1000"/>
+                                                <p t-nocache="" t-nocache-cached_template_variable="template_variable">
+                                                    <span t-out="cached_template_variable"/>
+                                                    <strong t-out="cached_template_variable + 5"/>
+                                                </p>
+                                            </div>
+                                            <p><b>Template Variable <span t-out="template_variable"/></b></p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                            <div class="tab-pane fade" id="inheritance" role="tabpane" 
+                            aria-labelledby="inheritance" tabindex="0">
+                            <h3 class="py-3">Inheritance</h3>
+                            <table class="table table-striped table-sm border py-3">
+                                <tbody>
+                                    <tr>
+                                        <th>Main Template</th>
+                                        <td><t t-call="v17_qweb_practice.main_template"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Extending Main Template</th>
+                                        <td><t t-call="v17_qweb_practice.inherited_main_template"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Child Template</th>
+                                        <td><t t-call="v17_qweb_practice.main_template_child"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                            <div class="tab-pane fade active show" id="javascript" role="tabpane" 
+                            aria-labelledby="javascript" tabindex="0">
+                            <h3 class="py-3">Javascript</h3>
+                            <table class="table table-striped table-sm border py-3">
+                                <tbody>
+                                    <tr>
+                                        <th>Render template from public Widget</th>
+                                        <td><div class="js-template"/> <div class="js-template"/></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="main_template" name="Main  Template">
+        <div class="alert alert-info">
+            <h3>This is the Main Template</h3>
+        </div>
+    </template>
+    <template id="inherited_main_template" name="Inherited Template" inherit_id="v17_qweb_practice.main_template">
+        <xpath expr="//div/h3" position="inside">
+            <small>Adding new element inside Title</small>
+        </xpath>
+        <xpath expr="//div/h3" position="before">
+            <small>Adding new element before Title</small>
+        </xpath>
+        <xpath expr="//div/h3" position="after">
+            <small>Adding new element before Title</small>
+        </xpath>
+    </template>
+
+    <template id="main_template_child" inherit_id="main_template" name="Child Template" primary="True">
+        <xpath expr="div" position="attributes">
+            <attribute name="class" add="alert-success" remove="alert-info" separator=" "/>
+            <attribute name="style">border: 1px solid red;</attribute>
+        </xpath>
+    </template>
+    <template id="static_template" name="Static Template">
+        <div class="alert alert-info">
+            This is a Static Template.
+        </div>
+    </template>
+    <template id="dynamic_template" name="Dynamic Template">
+        <article class="bg-light p-3 border show">
+            <h3 t-out="article_title"/>
+            <p class="text-muted"><small>This is a Dynamic Template</small></p>
+            <button class="btn btn-primary btn-sm">Learn More</button>
+        </article>
+    </template>
+</odoo>

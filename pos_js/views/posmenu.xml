@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    <menuitem id="menu_icon_harshiv_pos"
+    name="Harshiv Pos Js Practice"
+    web_icon="pos_js,static/description/pos.png"
+    sequence="51"/>
+</data>
+</odoo>

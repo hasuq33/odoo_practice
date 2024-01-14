@@ -1,0 +1,31 @@
+.pos{
+    .rightpane{
+        background: white;
+    }
+    .pos-topheader{
+        background: green;
+    }
+
+    .pos-logo{
+        height: 80%;
+        border-radius: 10px;
+    }
+    .order{
+        background: darkgreen;
+        color: white;
+    }
+     .order .orderline .info-list {
+        color: white;
+        margin-left: 10px;
+        em{
+            color: white;
+        }
+    }
+    .rightpane{
+        order: 1;
+    }
+
+    .leftpane{
+        order: 2;
+    }
+}

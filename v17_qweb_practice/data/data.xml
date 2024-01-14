@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="ht_qweb_practice" model="website.menu">
+            <field name="name">Qweb</field>
+            <field name="url">/qweb-parctice</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence">101</field>
+        </record>
+    </data>
+</odoo>
