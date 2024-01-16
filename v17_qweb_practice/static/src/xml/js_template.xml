@@ -65,7 +65,7 @@
     </t>
 
     <t t-name="v17_qweb_practice.templateEvenrtListner">
-        <div class="alert alert-primary">
+        <div class="alert alert-primary" id="betterForSeo">
             <h3>Template With Event</h3>
             <p>Counter <span id="counter">0</span></p>
             <button class="btn btn-info">Increase Counter</button>

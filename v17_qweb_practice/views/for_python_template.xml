@@ -40,10 +40,15 @@
                                 data-bs-target="#inheritance" type="button" role="tab"
                                 aria-controls="inheritance" aria-selected="false">Inheritance</button>
                             </li>
-                            <li class="nav-item active" role="presentation">
-                                <button class="nav-link active" id="javascript-tab" data-bs-toggle="tab"
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="javascript-tab" data-bs-toggle="tab"
                                 data-bs-target="#javascript" type="button" role="tab"
                                 aria-controls="javascript" aria-selected="false">Javascript</button>
+                            </li>
+                            <li class="nav-item active" role="presentation">
+                                <button class="nav-link active" id="owltemplate-tab" data-bs-toggle="tab"
+                                data-bs-target="#owltemplate" type="button" role="tab"
+                                aria-controls="owltemplate" aria-selected="false">Owl</button>
                             </li>
                         </ul>
 
@@ -368,7 +373,7 @@
                                 </tbody>
                             </table>
                             </div>
-                            <div class="tab-pane fade active show" id="javascript" role="tabpane" 
+                            <div class="tab-pane fade" id="javascript" role="tabpane" 
                             aria-labelledby="javascript" tabindex="0">
                             <h3 class="py-3">Javascript</h3>
                             <table class="table table-striped table-sm border py-3">
@@ -400,6 +405,26 @@
                                         <th>Template EventListner</th>
                                         <td>
                                             <div class="js-templateEventListner"></div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                            <div class="tab-pane fade active show" id="owltemplate" role="tabpane" 
+                            aria-labelledby="owltemplate" tabindex="0">
+                            <h3 class="py-3">Owl Template</h3>
+                            <table class="table table-striped table-sm border">
+                                <tbody>
+                                    <tr>
+                                        <th>Template Using Owl</th>
+                                        <td>
+                                            <div class="js_template_using_owl"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Owl Template With Backend Data</th>
+                                        <td>
+                                            <div class="backend_js_data"></div>
                                         </td>
                                     </tr>
                                 </tbody>

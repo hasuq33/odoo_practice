@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="v17_qweb_practice.my_owl_app_container">
+        <MainComponentsContainer/>
+        <div class="container py-5">
+            <h2>Harshiv's Owl App</h2>
+            <br/>
+            <div class="d-flex align-items-center justify-content-between">
+                <h4>Partners</h4>
+                <form class="d-flex align-items-center" t-on-submit.prevent="createPartner">
+                    <input class="form-control me-2" type="text" t-model="state.name"/>
+                    <button class="btn btn-success">Submit</button>
+                </form>
+            </div>
+            <table class="table table-striped border">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr t-foreach="state.partners" t-as="partner" t-key="partner.id">
+                        <td t-out="partner.id"/>
+                        <td t-out="partner.name"/>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </t>
+</templates>

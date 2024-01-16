@@ -7,5 +7,11 @@
             <field name="parent_id" ref="website.main_menu"/>
             <field name="sequence">101</field>
         </record>
+        <record id="ht_owl_app_menu" model="website.menu">
+            <field name="name">App</field>
+            <field name="url">/qweb-owl</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence">102</field>
+        </record>
     </data>
 </odoo>

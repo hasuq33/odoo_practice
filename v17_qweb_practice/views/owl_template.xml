@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<template id="ht_app_template" name="My App">
+    <html>
+        <head>
+            <t t-call-assets="harshiv_owl_app.asset"/>
+        </head>
+        <body>
+            <div id="owl_wrap_wrap" class="container"></div>
+        </body>
+    </html>
+</template>
+</odoo>

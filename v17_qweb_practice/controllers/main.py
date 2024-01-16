@@ -32,3 +32,15 @@ class QwebTemplatePractice(http.Controller):
             # Using Markup You can Format the html field
         }
         return request.render('v17_qweb_practice.somePythonTemplate',data)
+    
+
+    @http.route('/qweb_ajax_call',type="json",auth="public")
+    def ajax_form_submit(self,**kw):
+        import pdb;pdb.set_trace()
+        print(kw)
+        # Do whatever Crud Operation you want
+        return {"status":1}
+    
+    @http.route('/qweb-owl',type="http",auth="public")
+    def view_owl_app(self):
+        return request.render('v17_qweb_practice.ht_app_template')

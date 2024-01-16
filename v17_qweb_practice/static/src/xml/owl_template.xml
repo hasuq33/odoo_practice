@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-name="v17_qweb_practice.ht_owl_template">
+     <div class="p-4 border">
+           <h3>This is rendered using owl</h3>
+           <button class="btn btn-primary" t-on-click="increaseCounter">
+            Counter: <span t-out="state.counter"/>
+           </button>
+
+           <hr/>
+
+           <p>Date: <span t-out="date"/></p>
+           <hr/>
+            <ul>
+                    <li t-foreach="getSomelist" t-as="id" t-key="id">
+                        <span t-out="id"/>
+                    </li>
+            </ul>
+            <hr/>
+            <OwlSubComponent>
+                <t t-slot="title">
+                    <h3>Rendered Using Slot</h3>
+                </t>
+                <t t-slot="date_author">
+                    <div>
+                        <t t-set="article_date" t-value="new Date()"/>
+                        <small t-out="article_date.toLocaleString()"/>
+                        <small>Harshiv Joshi</small>
+                    </div>
+                </t>
+                <hr/>
+                <p>Add any content here.</p>
+                <button class="btn btn-primary">Learn More</button>
+            </OwlSubComponent>
+            <hr/>
+            <OwlSubComponentChild>
+                <t t-slot="title">
+                    <h3>Harsha Technologies</h3>
+                </t>
+                <t t-slot="date_author">
+                    <div>
+                        <t t-set="article_date" t-value="new Date()"/>
+                        <small t-out="article_date.toLocaleString()"/>
+                        <small>Harsha Joshi</small>
+                    </div>
+                </t>
+                <hr/>
+                <p>Hitesh Here.</p>
+                <button class="btn btn-primary">Learn More</button>
+            </OwlSubComponentChild>
+     </div>
+    </t>
+
+    <t t-name="v17_qweb_practice.owl_sub_template">
+        <h6>Yes I am a Sub Component!</h6>
+        <article class="alert alert-info">
+            <t t-set-slot="title"/>
+            <t t-set-slot="date_author"/>
+            <t t-slot="default"/>
+        </article>
+    </t>
+
+    <t t-inherit="v17_qweb_practice.owl_sub_template" t-inherit-mode="extension">
+        <xpath expr="//article" position="after">
+            <p>Added Using extension inheritance</p>
+        </xpath>
+    </t>
+
+    <t t-name="v17_qweb_practice.owl_sub_template_child" t-inherit="v17_qweb_practice.owl_sub_template" t-inherit-mode="primary">
+        <xpath expr="//article" position="attributes">
+            <attribute name="class" remove="alert-info" add="alert-primary" separator=" "/>
+        </xpath>
+    </t>
+
+    <t t-name="v17_qweb_practice.owl_backend_interaction">
+        <div class="p-4 border">
+            <h2>Sale Order</h2>
+            <hr/>
+            <ul>
+                <li t-foreach="state.order" t-as="id" t-key="id.id">
+                    <strong t-out="id.name"/> - <span t-out="id.date_order"/>
+                </li>
+            </ul>
+            <div class="alert alert-info">
+                <h3>Form Submission</h3>
+                <form t-on-submit="(e)=> this.submitForm(e)">
+                    <input type="text" class="form-control mb-3" t-model="state.txtInput"/>
+                    <button class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </t>
+</templates>
