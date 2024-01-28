@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="harshiv_owl_template" name="My Template">
+        <html>
+            <head>
+                <t t-call-assets="harshiv_app.assets"/>
+                <title>Owl Practice</title>
+            </head>
+            <body>
+            </body>
+        </html>
+    </template>
+</odoo>

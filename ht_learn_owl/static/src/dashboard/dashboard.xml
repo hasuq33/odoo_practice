@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+<t t-name="oxp.Dashboard">
+  <Layout>
+    <t t-set-slot="control-panel">
+      Dashboard
+    </t>
+  </Layout>
+</t>
+
+</templates>
